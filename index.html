@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso JS (Manejo del Dom)</title>
+    <style type="text/css">
+		img {width: 200px;height: 200px;}
+		.importante { color:blue; background-color: lightblue; }
+
+	</style>
+
+</head>
+<body>
+    <h1 id="titulo">Título</h1>
+<h1 id="titulo2">Título</h1>
+<p>Usuario:<input id="usuario" type="text" value="Pepe"></p>
+<img id="imagen" src="https://images.pexels.com/photos/8455051/pexels-photo-8455051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+
+<button onclick="cambiaTitulo()">Cambia Título</button>
+<button onclick="cambiaImagen()">Cambia Imagen</button>	
+<button onclick="cambiaValor()">Cambia Valor</button>
+<button onclick="cambiaColor()">Cambia Color</button>
+<button onclick="ocultaImagen()">Oculta Imagen</button>	
+<button onclick="aplicaClase()">Aplica Clase</button>
+<button onclick="nuevoHTML()">Nuevo HTML</button>
+<p>Idioma: <select id="idioma" onchange="cambiaIdioma()">
+	<option value="es">Español</option>
+	<option value="en">Inglés</option>
+</select></p>
+
+<script type="text/javascript">
+
+	/** propiedad innerHTMl **/
+	
+	function cambiaTitulo(){
+		let titulo=document.getElementById("titulo");
+		titulo.innerHTML = "Título NUEVO";
+	}
+
+	/** atributos html: ej. src o value **/
+
+	function cambiaImagen(){
+		document.getElementById("imagen").src = "https://images.pexels.com/photos/14746875/pexels-photo-14746875.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+	}
+
+	/**Cambiar el valor del usuario**/
+
+	function cambiaValor(){
+		document.getElementById("usuario").value="admin";
+	}
+
+	/** propiedades css ( se pone .style )  **/
+
+	function cambiaColor(){
+		let titulo=document.getElementById("titulo");
+		titulo.style.color = "red";
+		titulo.style.backgroundColor = "yellow";
+		titulo.style.fontSize = "4em";
+		titulo.style.border = "2px solid red";
+	}
+
+	/***Ocultar la imagen********/
+
+	function ocultaImagen(){
+		document.getElementById("imagen").style.display = "none";
+	}
+
+	/** aplicar una clase a un elemento  **/
+
+	function aplicaClase(){
+		let titulo=document.getElementById("titulo2");
+		titulo.className = "importante";
+	}
+
+	/** Escribir nuevo HTML  **/
+
+	function nuevoHTML(){
+		document.write("<h1>Nuevo HTML</h1>");
+	}
+
+	/**********Carmar el idioma*******************/
+	
+	function cambiaIdioma(){
+		let miSelect=document.getElementById("idioma");
+		let titulo=document.getElementById("titulo");
+		if ( miSelect.value=="en" ) {
+			titulo.innerHTML = "New Title";
+		} else {
+			titulo.innerHTML = "Nuevo Título";
+		}
+	}
+</script>
+</body>
+</html>
